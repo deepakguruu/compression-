@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   <constant name = "struts.devMode" value = "true" />
+   <constant name = "struts.multipart.maxSize" value = "1000000" />
+   <package name = "file" extends = "struts-default">
+      <action name = "upload" class = "file.UploadFile">
+         <result name = "success">/success.jsp</result>
+         <result name = "error">/error.jsp</result>
+         <result name = "input">/upload.jsp</result>
+      </action>
+      <action name = "decompress" class = "file.decompressFile">
+         <result name = "success">/success.jsp</result>
+         <result name = "error">/error.jsp</result>
+      </action>
+      <action name="downloadFile" class="file.downloadFile">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+   </package>
+</struts>
