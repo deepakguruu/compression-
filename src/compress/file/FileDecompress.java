@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 
 
+/**
+ * @author Deepak
+ *
+ */
 public class FileDecompress {
 	
 	public static void decompress(File source, File destination) throws IOException{

@@ -14,6 +14,10 @@ import javax.imageio.stream.ImageOutputStream;
 
 import compress.Compress;
 
+/**
+ * @author Deepak
+ *
+ */
 public class PNGCompress extends Compress implements Runnable {
 	
 	public PNGCompress(Compress compress) {

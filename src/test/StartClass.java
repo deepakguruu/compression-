@@ -7,6 +7,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+/**
+ * @author Deepak
+ *
+ */
 public class StartClass {
 //    final static byte DOT=46;
     final static int SPACE=-2;

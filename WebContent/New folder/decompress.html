@@ -1,0 +1,64 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+   <head>
+      <title>File Upload</title>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1 {border-radius: 8px;}
+
+.upload-btn-wrapper {
+ position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {  
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+body {background-color:#E6E6FA;}
+
+</style>
+   </head>
+   
+   <body>
+ <center><h2>Browse the Data to perform Decompression</h2>
+<h3>Select the file. <br/>
+Upload it to Start Decompression.</h3>
+      <form action = "decompress" method = "post" enctype = "multipart/form-data">
+          <div class="upload-btn-wrapper">
+          <button class="btn" style="background-color:#FFE4C4;color:#2F4F4F;">Choose file</button>
+         <input type = "file" name = "myFile" />
+        </div> <br/><br/>
+     		<button type ="submit" class="btn" style="background-color:#FFE4C4;color:#2F4F4F">Upload</button>
+      </form>
+</center>
+   </body>
+</html>

@@ -10,6 +10,10 @@ import javax.imageio.stream.ImageOutputStream;
 
 import compress.Compress;
 
+/**
+ * @author Deepak
+ *
+ */
 public class JPEGCompress extends Compress implements Runnable {
 	
 	public JPEGCompress(Compress compress) {

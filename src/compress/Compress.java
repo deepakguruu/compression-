@@ -9,6 +9,10 @@ import compress.file.FileCompress;
 import compress.image.JPEGCompress;
 import compress.image.PNGCompress;
 
+/**
+ * @author Deepak
+ *
+ */
 public class Compress{
 
 	protected File source;
@@ -19,7 +23,6 @@ public class Compress{
 		setSource(src);
 		setDestination(dst);
 	}
-	
 	
 	public Compress(Compress comp) {
 		// TODO Auto-generated constructor stub

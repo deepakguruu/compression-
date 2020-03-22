@@ -7,7 +7,12 @@ import java.lang.reflect.Method;
 import compress.Compress;
 import compress.file.FileCompress;
 
+/**
+ * @author Deepak
+ *
+ */
 public class TestMethod {
+	
 	public static void main(String[] args) {
 		try {
 			Class c = Class.forName("compress.file.FileCompress");

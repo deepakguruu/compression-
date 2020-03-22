@@ -7,11 +7,12 @@ import java.io.InputStream;
  
 import com.opensymphony.xwork2.ActionSupport;
  
+/**
+ * @author Deepak
+ *
+ */
 public class downloadFile extends ActionSupport {
- 
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private InputStream inputStream;
     private String fileName;

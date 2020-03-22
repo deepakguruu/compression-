@@ -5,6 +5,10 @@ import java.io.IOException;
 
 import compress.file.FileDecompress;
 
+/**
+ * @author Deepak
+ *
+ */
 public class decompressFile {
 
 	private static final String SUCCESS = "success";

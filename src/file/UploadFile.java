@@ -9,10 +9,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import compress.Compress;
 
+/**
+ * @author Deepak
+ *
+ */
 public class UploadFile extends ActionSupport {
-   /**
-	 * 
-	 */
+   
 	private static final long serialVersionUID = 1L;
 	private File myFile;
 	private String myFileContentType;

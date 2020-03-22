@@ -8,6 +8,10 @@ import java.util.zip.GZIPOutputStream;
 
 import compress.Compress;
 
+/**
+ * @author Deepak
+ *
+ */
 public class FileCompress extends Compress implements Runnable {
 	
 	public FileCompress(Compress compress) {
