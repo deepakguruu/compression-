@@ -19,16 +19,16 @@ import compress.Compress;
  *
  */
 public class PNGCompress extends Compress implements Runnable {
-	
+	File destFile;
 	public PNGCompress(Compress compress) {
 		// TODO Auto-generated constructor stub
 		super(compress);
 	}
 	
-	public PNGCompress(Compress compress, File destFile) {
+	public PNGCompress(Compress compress, File destFilex) {
 		// TODO Auto-generated constructor stub
 		super(compress);
-		destination=destFile;
+		destFile=destFilex;
 	}
 	
 	public void run() {
@@ -43,7 +43,7 @@ public class PNGCompress extends Compress implements Runnable {
 		    metadata = reader.getImageMetadata(0);
 		    reader.dispose();
 
-		try (ImageOutputStream out = ImageIO.createImageOutputStream(destination)) {
+		try (ImageOutputStream out = ImageIO.createImageOutputStream(destFile)) {
 		    ImageTypeSpecifier type = ImageTypeSpecifier.createFromRenderedImage(image);
 		    ImageWriter writer = ImageIO.getImageWriters(type, "png").next();
 

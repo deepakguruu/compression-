@@ -29,7 +29,7 @@ public class Compress{
 		this.source=comp.source;
 		this.barrier=comp.barrier;
 	}
-	
+	public static String str="C:/work_files/temp/";
 	public CyclicBarrier handleCompress(ArrayList<String> list){
 		
 		
@@ -44,37 +44,47 @@ public class Compress{
 			barrier = new CyclicBarrier(num+1);
 			Iterator<String> iter =  list.iterator();
 			for(i=0; i<num;i++){
-				totalTime[i]=compress(threads[i],iter.next(),destFile[i]);
+				switch (iter.next()){
+				case "FileCompress":
+					destFile[i]=new File(str+"compressed"+i+".txt");
+					threads[i]=new Thread(new FileCompress(this,destFile[i]));
+					break;
+				case "JPEGCompress":
+					destFile[i]=new File(str+"compressed"+i+".jpg");
+					threads[i]=new Thread( new JPEGCompress(this,destFile[i]));
+					break;
+				case "PNGCompress":
+					destFile[i]=new File(str+"compressed"+i+".png");
+					threads[i]=new Thread( new PNGCompress(this,destFile[i]));
+					break;
+				}
+				long startTime=System.nanoTime();
+				System.out.println(startTime);
+				threads[i].start();
+				long endTime=System.nanoTime();
+				totalTime[i]=endTime-startTime;
 			}
-			bestCalculate(totalTime,destFile);
+			bestCalculate(totalTime,destFile,num);
 		}
 		return barrier;
 	}
 	
-	private void bestCalculate(long[] totalTime, File[] destFile) {
+	private void bestCalculate(long[] totalTime, File[] destFile,int num) {
 		// TODO Auto-generated method stub
-		
-	}
-
-
-	public long compress(Thread thread, String alg,File destFile) {
-		// TODO Auto-generated method stub
-		switch (alg){
-		case "FileCompress":
-			thread=new Thread(new FileCompress(this,destFile));
-			break;
-		case "JPEGCompress":
-			thread=new Thread( new JPEGCompress(this,destFile));
-			break;
-		case "PNGCompress":
-			thread=new Thread( new PNGCompress(this,destFile));
-			break;
+		int best=0;
+		for(int i=0;i<num;i++){
+			
 		}
-		long startTime=System.currentTimeMillis();
-		thread.start();
-		long endTime=System.currentTimeMillis();
-		return (endTime-startTime);
+		destination=destFile[best];
 	}
+
+
+//	public long compress(Thread thread, String alg,File destFile) {
+//		// TODO Auto-generated method stub
+//		
+//		
+//		return ();
+//	}
 	
 	public File getSource() {
 		return source;

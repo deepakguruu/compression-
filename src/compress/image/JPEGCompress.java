@@ -16,14 +16,16 @@ import compress.Compress;
  */
 public class JPEGCompress extends Compress implements Runnable {
 	
+	File destFile;
 	public JPEGCompress(Compress compress) {
 		// TODO Auto-generated constructor stub
 		super(compress);
 	}
-	public JPEGCompress(Compress compress, File destFile) {
+	public JPEGCompress(Compress compress, File destFilex) {
 		// TODO Auto-generated constructor stub
 		super(compress);
-		destination=destFile;
+//		destination=destFile;
+		destFile=destFilex;
 	}
 	public void run() {
 		// TODO Auto-generated method stub
@@ -34,7 +36,7 @@ public class JPEGCompress extends Compress implements Runnable {
 		ImageWriteParam jpegWriteParam = jpegWriter.getDefaultWriteParam();
 		jpegWriteParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
 		jpegWriteParam.setCompressionQuality(0.5f);
-		try(ImageOutputStream output = ImageIO.createImageOutputStream(destination)){
+		try(ImageOutputStream output = ImageIO.createImageOutputStream(destFile)){
 			jpegWriter.setOutput(output);
 			IIOImage outputImage = new IIOImage(image,null,null);
 			jpegWriter.write(null,outputImage,jpegWriteParam);

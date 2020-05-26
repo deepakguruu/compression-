@@ -12,14 +12,14 @@ public class pyScript2 {
 
 	public static void main(String args[]) {
 
-        String s = null;
+        float s ;
 
         try {
             
 	    // run the Unix "ps -ef" command
             // using the Runtime exec method:
         	String file="count.py";
-            Process p = Runtime.getRuntime().exec("py C:\\Users\\Deepak\\Desktop\\"+file+" D:/alice29.txt");
+            Process p = Runtime.getRuntime().exec("py C:\\work_files\\"+file+" E:/alice29.txt");
             
             BufferedReader stdInput = new BufferedReader(new 
                  InputStreamReader(p.getInputStream()));
@@ -28,16 +28,21 @@ public class pyScript2 {
                  InputStreamReader(p.getErrorStream()));
 
             // read the output from the command
-//            System.out.println("Here is the standard output of the command:\n");
-            while ((s = stdInput.readLine()) != null) {
-                System.out.println(s);
-            }
-            
+//            j.out.println("Here is the standard output of the command:\n");
+            s = Float.parseFloat(stdInput.readLine()) ;
+            System.out.println(s);
+            s = Float.parseFloat(stdInput.readLine()) ;
+            System.out.println(s);
+            String ss ;
             // read any errors from the attempted command
 //            System.out.println("Here is the standard error of the command (if any):\n");
-            while ((s = stdError.readLine()) != null) {
-                System.out.println(s);
+            while ((ss = stdError.readLine()) != null) {
+                System.out.println(ss);
             }
+            
+            
+            
+            
             
             System.exit(0);
         }

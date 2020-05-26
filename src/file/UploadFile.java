@@ -41,9 +41,9 @@ public class UploadFile extends ActionSupport {
          barrier.await();
          
          setTimeTaken(startTime);
-         setCompressedFile(new StringBuilder(destPath).append(myFileFileName).toString());
+         setCompressedFile(c.getDestination().getPath());
          setBeforeSize(myFile.length());
-         setAfterSize(destFile.length());
+         setAfterSize(c.getDestination().length());
          setCompressionPercentage((float)(getBeforeSize())/getAfterSize());
       } catch(Exception e) {
          e.printStackTrace();
@@ -58,6 +58,7 @@ public class UploadFile extends ActionSupport {
 		ArrayList<String> compression = new ArrayList<>();
 		compression.add("JPEGCompress");
 		compression.add("JPEGCompress");
+		compression.add("JPEGCompress");
 		algorithms.put("image/jpeg",(ArrayList<String>)compression.clone() );
 		compression.clear();
 		compression.add("PNGCompress");
@@ -65,6 +66,9 @@ public class UploadFile extends ActionSupport {
 		compression.clear();
 		compression.add("FileCompress");
 		algorithms.put("application/text",(ArrayList<String>)compression.clone() );
+		compression.clear();
+		compression.add("FileCompress");
+		algorithms.put("text/plain",(ArrayList<String>)compression.clone() );
 		compression.clear();
 	}
 	

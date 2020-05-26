@@ -13,15 +13,15 @@ import compress.Compress;
  *
  */
 public class FileCompress extends Compress implements Runnable {
-	
+	File destFile;
 	public FileCompress(Compress compress) {
 		// TODO Auto-generated constructor stub
 		super(compress);
 	}
-	public FileCompress(Compress compress, File destFile) {
+	public FileCompress(Compress compress, File destFilex) {
 		// TODO Auto-generated constructor stub
 		super(compress);
-		destination=destFile;
+		destFile=destFilex;
 	}
 
 	public void run(){
@@ -31,7 +31,7 @@ public class FileCompress extends Compress implements Runnable {
 		FileOutputStream fos = null;
 		try {
 			fis = new FileInputStream(source);
-			fos = new FileOutputStream(destination);
+			fos = new FileOutputStream(destFile);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
